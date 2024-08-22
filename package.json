@@ -75,10 +75,10 @@
     ],
     "asar": true
   },
-  "repository": "https://github.com/OneFolderApp/OneFolder",
+  "repository": "https://github.com/Antoine-lb/OneFolder",
   "publish": {
     "provider": "github",
-    "owner": "OneFolderApp",
+    "owner": "Antoine-lb",
     "repo": "OneFolder",
     "releaseType": "release"
   },

@@ -21,16 +21,13 @@ jobs:
         with:
           node-version: 16
 
-      - name: Prepare for app notarization
-        if: startsWith(matrix.os, 'macos')
-        # Import Apple API key for app notarization on macOS
-        run: |
-          mkdir -p ~/private_keys/
-          echo '${{ secrets.API_KEY }}' > ~/private_keys/AuthKey_${{ secrets.API_KEY_ID }}.p8
-          ls ~/private_keys
-        # env:
-        #   API_KEY_ID: ${{ secrets.API_KEY_ID }}
-        #   API_KEY_ISSUER_ID: ${{ secrets.API_KEY_ISSUER_ID }}
+      # - name: Prepare for app notarization
+      #   if: startsWith(matrix.os, 'macos')
+      #   # Import Apple API key for app notarization on macOS
+      #   run: |
+      #     mkdir -p ~/private_keys/
+      #     echo '${{ secrets.API_KEY }}' > ~/private_keys/AuthKey_${{ secrets.API_KEY_ID }}.p8
+      #     ls ~/private_keys
 
       - name: Build/release Electron app
         uses: Yan-Jobs/action-electron-builder@v1.7.0
@@ -47,9 +44,9 @@ jobs:
           mac_certs_password: ${{ secrets.MAC_CERTS_PASSWORD }}
         env:
           # Environment variables for notarization
-          appleApiKey: ~/private_keys/AuthKey_${{ secrets.API_KEY_ID }}.p8
-          appleApiKeyId: ${{ secrets.API_KEY_ID }}
-          appleApiIssuer: ${{ secrets.API_KEY_ISSUER_ID }}
+          # appleApiKey: ~/private_keys/AuthKey_${{ secrets.API_KEY_ID }}.p8
+          # appleApiKeyId: ${{ secrets.API_KEY_ID }}
+          # appleApiIssuer: ${{ secrets.API_KEY_ISSUER_ID }}
           appleId: ${{ secrets.APPLE_ID }}
           appleIdPassword: ${{ secrets.APPLE_ID_PASSWORD }}
           teamId: ${{ secrets.TEAM_ID }}

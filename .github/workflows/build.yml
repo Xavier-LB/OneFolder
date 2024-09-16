@@ -50,3 +50,6 @@ jobs:
           appleApiKey: ~/private_keys/AuthKey_${{ secrets.API_KEY_ID }}.p8
           appleApiKeyId: ${{ secrets.API_KEY_ID }}
           appleApiIssuer: ${{ secrets.API_KEY_ISSUER_ID }}
+          appleId: ${{ secrets.APPLE_ID }}
+          appleIdPassword: ${{ secrets.APPLE_ID_PASSWORD }}
+          teamId: ${{ secrets.TEAM_ID }}

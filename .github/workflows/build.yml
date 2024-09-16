@@ -20,18 +20,13 @@ jobs:
         with:
           node-version: 16
 
-      - name: Log API Key Information (Masked)
-        if: startsWith(matrix.os, 'macos')
-        run: |
-          echo "API_KEY_ID starts with: ${${{ secrets.API_KEY_ID:0:4 }}***"
-          echo "API_KEY_ISSUER_ID starts with: ${${{ secrets.API_KEY_ISSUER_ID:0:4 }}***"
-
       - name: Prepare for app notarization
         if: startsWith(matrix.os, 'macos')
         # Import Apple API key for app notarization on macOS
         run: |
           mkdir -p ~/private_keys/
-          echo '${{ secrets.API_KEY }}'
+          echo "API_KEY_ID starts with: ${${{ secrets.API_KEY_ID:0:4 }}***"
+          echo "API_KEY_ISSUER_ID starts with: ${${{ secrets.API_KEY_ISSUER_ID:0:4 }}***"
           echo '${{ secrets.API_KEY }}' > ~/private_keys/AuthKey_${{ secrets.API_KEY_ID }}.p8 
 
       - name: Build/release Electron app

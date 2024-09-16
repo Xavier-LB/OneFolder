@@ -33,14 +33,17 @@ jobs:
           mac_certs: ${{ secrets.MAC_CERTS }}
           mac_certs_password: ${{ secrets.MAC_CERTS_PASSWORD }}
 
+      # If you need to check the length of secrets, do it in a separate step
+      - name: Check Secret Lengths
         run: |
-          echo "mac_certs length: ${#MAC_CERTS}"
-          echo "mac_certs_password length: ${#MAC_CERTS_PASSWORD}"
-          echo "appleId length: ${#appleId}"
-          echo "appleIdPassword length: ${#appleIdPassword}"
-          echo "teamId length: ${#teamId}"
-        
-        env: 
-          appleId: ${{ secrets.APPLE_ID }}
-          appleIdPassword: ${{ secrets.APPLE_ID_PASSWORD }}
-          teamId: ${{ secrets.TEAM_ID }}
+          echo "MAC_CERTS length: ${#MAC_CERTS}"
+          echo "MAC_CERTS_PASSWORD length: ${#MAC_CERTS_PASSWORD}"
+          echo "APPLE_ID length: ${#APPLE_ID}"
+          echo "APPLE_ID_PASSWORD length: ${#APPLE_ID_PASSWORD}"
+          echo "TEAM_ID length: ${#TEAM_ID}"
+        env:
+          MAC_CERTS: ${{ secrets.MAC_CERTS }}
+          MAC_CERTS_PASSWORD: ${{ secrets.MAC_CERTS_PASSWORD }}
+          APPLE_ID: ${{ secrets.APPLE_ID }}
+          APPLE_ID_PASSWORD: ${{ secrets.APPLE_ID_PASSWORD }}
+          TEAM_ID: ${{ secrets.TEAM_ID }}

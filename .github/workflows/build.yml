@@ -48,6 +48,6 @@ jobs:
           mac_certs: ${{ secrets.mac_certs }}
           # MAC_CERTS_PASSWORD: ${{ secrets.MAC_CERTS_PASSWORD }}
           mac_certs_password: ${{ secrets.mac_certs_password }}
-          APPLE_ID: ${{ secrets.APPLE_ID }}
-          APPLE_ID_PASSWORD: ${{ secrets.APPLE_ID_PASSWORD }}
-          TEAM_ID: ${{ secrets.TEAM_ID }}
+          APPLE_ID: ${{ env.APPLE_ID }}
+          APPLE_ID_PASSWORD: ${{ env.APPLE_ID_PASSWORD }}
+          TEAM_ID: ${{ env.TEAM_ID }}

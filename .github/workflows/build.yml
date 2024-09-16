@@ -21,7 +21,7 @@ jobs:
 
       - name: Verify Secret Lengths
         run: |
-          echo "MAC_CERTS length: ${#MAC_CERTS}"
+          echo "MAC_CERTS length: $MAC_CERTS"
           echo "MAC_CERTS_PASSWORD length: ${#MAC_CERTS_PASSWORD}"
         env:
           MAC_CERTS: ${{ secrets.MAC_CERTS }}

@@ -19,31 +19,35 @@ jobs:
         with:
           node-version: 16
 
-      - name: Build/release Electron app
-        uses: Yan-Jobs/action-electron-builder@v1.7.0
-        with:
-          # GitHub token, automatically provided to the action
-          # (No need to define this secret in the repo settings)
-          github_token: ${{ secrets.github_token }}
+      # - name: Build/release Electron app
+      #   uses: Yan-Jobs/action-electron-builder@v1.7.0
+      #   with:
+      #     # GitHub token, automatically provided to the action
+      #     # (No need to define this secret in the repo settings)
+      #     github_token: ${{ secrets.github_token }}
 
-          # If the commit is tagged with a version (e.g. "v1.0.0"),
-          # release the app after building
-          release: ${{ startsWith(github.ref, 'refs/tags/v') }}
+      #     # If the commit is tagged with a version (e.g. "v1.0.0"),
+      #     # release the app after building
+      #     release: ${{ startsWith(github.ref, 'refs/tags/v') }}
 
-          mac_certs: ${{ secrets.MAC_CERTS }}
-          mac_certs_password: ${{ secrets.MAC_CERTS_PASSWORD }}
+      #     mac_certs: ${{ secrets.MAC_CERTS }}
+      #     mac_certs_password: ${{ secrets.MAC_CERTS_PASSWORD }}
 
       # If you need to check the length of secrets, do it in a separate step
       - name: Check Secret Lengths
         run: |
           echo "MAC_CERTS length: ${#MAC_CERTS}"
+          echo "mac_certs length: ${#mac_certs}"
           echo "MAC_CERTS_PASSWORD length: ${#MAC_CERTS_PASSWORD}"
+          echo "mac_certs_password length: ${#mac_certs_password}"
           echo "APPLE_ID length: ${#APPLE_ID}"
           echo "APPLE_ID_PASSWORD length: ${#APPLE_ID_PASSWORD}"
           echo "TEAM_ID length: ${#TEAM_ID}"
         env:
           MAC_CERTS: ${{ secrets.MAC_CERTS }}
+          mac_certs: ${{ secrets.mac_certs }}
           MAC_CERTS_PASSWORD: ${{ secrets.MAC_CERTS_PASSWORD }}
+          mac_certs_password: ${{ secrets.mac_certs_password }}
           APPLE_ID: ${{ secrets.APPLE_ID }}
           APPLE_ID_PASSWORD: ${{ secrets.APPLE_ID_PASSWORD }}
           TEAM_ID: ${{ secrets.TEAM_ID }}

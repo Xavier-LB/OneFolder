@@ -44,9 +44,9 @@ jobs:
           echo "APPLE_ID_PASSWORD length: ${#APPLE_ID_PASSWORD}"
           echo "TEAM_ID length: ${#TEAM_ID}"
         env:
-          MAC_CERTS: ${{ secrets.MAC_CERTS }}
+          # MAC_CERTS: ${{ secrets.MAC_CERTS }}
           mac_certs: ${{ secrets.mac_certs }}
-          MAC_CERTS_PASSWORD: ${{ secrets.MAC_CERTS_PASSWORD }}
+          # MAC_CERTS_PASSWORD: ${{ secrets.MAC_CERTS_PASSWORD }}
           mac_certs_password: ${{ secrets.mac_certs_password }}
           APPLE_ID: ${{ secrets.APPLE_ID }}
           APPLE_ID_PASSWORD: ${{ secrets.APPLE_ID_PASSWORD }}

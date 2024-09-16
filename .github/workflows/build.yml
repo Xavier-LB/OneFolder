@@ -25,12 +25,11 @@ jobs:
         # Import Apple API key for app notarization on macOS
         run: |
           mkdir -p ~/private_keys/
-          echo "API_KEY_ID length: ${#API_KEY_ID}"
-          echo "API_KEY_ISSUER_ID length: ${#API_KEY_ISSUER_ID}"
           echo '${{ secrets.API_KEY }}' > ~/private_keys/AuthKey_${{ secrets.API_KEY_ID }}.p8
-        env:
-          API_KEY_ID: ${{ secrets.API_KEY_ID }}
-          API_KEY_ISSUER_ID: ${{ secrets.API_KEY_ISSUER_ID }}
+          ls ~/private_keys
+        # env:
+        #   API_KEY_ID: ${{ secrets.API_KEY_ID }}
+        #   API_KEY_ISSUER_ID: ${{ secrets.API_KEY_ISSUER_ID }}
 
       - name: Build/release Electron app
         uses: Yan-Jobs/action-electron-builder@v1.7.0

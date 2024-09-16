@@ -78,7 +78,7 @@
   "repository": "https://github.com/Antoine-lb/OneFolder",
   "publish": {
     "provider": "github",
-    "owner": "Antoine-lb",
+    "owner": "Xavier-LB",
     "repo": "OneFolder",
     "releaseType": "release"
   },

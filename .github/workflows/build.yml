@@ -9,7 +9,8 @@ jobs:
 
     strategy:
       matrix:
-        os: [macos-latest, ubuntu-latest, windows-latest]
+        os: [macos-latest]
+        # os: [macos-latest, ubuntu-latest, windows-latest]
 
     steps:
       - name: Check out Git repository
@@ -45,7 +46,7 @@ jobs:
           mac_certs: ${{ secrets.MAC_CERTS }}
           mac_certs_password: ${{ secrets.MAC_CERTS_PASSWORD }}
         env:
-          # macOS notarization API key
-          API_KEY_ID: ${{ secrets.API_KEY_ID }}
-          API_KEY_ISSUER_ID: ${{ secrets.API_KEY_ISSUER_ID }}
-
+          # Environment variables for notarization
+          appleApiKey: ~/private_keys/AuthKey_${{ secrets.API_KEY_ID }}.p8
+          appleApiKeyId: ${{ secrets.API_KEY_ID }}
+          appleApiIssuer: ${{ secrets.API_KEY_ISSUER_ID }}

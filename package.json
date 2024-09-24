@@ -75,7 +75,7 @@
     ],
     "asar": true
   },
-  "repository": "https://github.com/Antoine-lb/OneFolder",
+  "repository": "https://github.com/Xavier-lb/OneFolder",
   "publish": {
     "provider": "github",
     "owner": "Xavier-LB",
